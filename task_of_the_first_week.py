@@ -176,14 +176,16 @@ print('\n****************** task 13 ******************\n')
 
 import re
 def generate_password(symb_str):
-    if all([re.findall('[A-Z]', symb_str), re.findall('[a-z]', symb_str), re.findall('[0-9]', symb_str),re.findall('[$#@]', symb_str), 6 <= len(symb_str) <= 12]):
-        return 'Good password!'
+    if all([re.findall('[A-Z]', symb_str), re.findall('[a-z]', symb_str),
+            re.findall('[0-9]', symb_str),re.findall('[$#@]', symb_str),
+            6 <= len(symb_str) <= 12]):
+        return True
     else:
-        return 'Bad password!'
+        return False
 
-assert generate_password('11kTFD5@#1#') == 'Good password!'
-assert generate_password('1111111') == 'Bad password!'
-assert generate_password('qweQWE') == 'Bad password!'
+assert generate_password('11kTFD5@#1#') == True
+assert generate_password('1111111') == False
+assert generate_password('qweQWE') == False
 
 ########################################################################################################################
 
