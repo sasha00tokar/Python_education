@@ -42,13 +42,15 @@ class Person:
         print("До свидания мистер {} {}".format(self.name, self.surname))
 p1 = Person('Sanya', 'Tokar', 12)
 p2 = Person('Sasha', 'Rozko', 10)
-p3 = Person('Maks', 'Hudko')
+p3 = Person('Maks', 'Hudko', 13)
 min = p1.level
+loose = p1
 for employee in [p1, p2, p3]:
     if employee.level < min:
         min = employee.level
-print("Самое слабое звено мистер {} {} с квалификацией ({})".format(employee.name, employee.surname, employee.level))
-employee.__del__()
+        loose = employee
+print("Самое слабое звено мистер {} {} с квалификацией ({})".format(loose.name, loose.surname, loose.level))
+loose.__del__()
 input()
 
 
