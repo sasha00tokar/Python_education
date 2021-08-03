@@ -1,6 +1,6 @@
 from collections import Counter
-from operator import itemgetter
 import re
+from operator import itemgetter
 
 
 print('****************** task 1 ******************\n')
@@ -190,9 +190,8 @@ def sorted_by_priority(list_for_sort):
 
 ########################################################################################################################
 
-
 print('\n****************** task 15 ******************\n')
-# 15. На вході функція отримує список strings із переміщеннями робота
+#15. На вході функція отримує список strings із переміщеннями робота
 # вигляду "1 UP", "2 LEFT", "3 DOWN", і т.д. робот може рухатись
 # тільки в 4 сторони(UP,DOWN,LEFT,RIGHT). функція повинна повертати
 # відстань між початковою і кінцевою точками робота.
@@ -226,6 +225,6 @@ def words_in_text(text_str):
     for key, value in sorted(list(Counter(text_str.replace('.', ' ').replace(',', ' ').split()).items())):
         word_in_order.append((key, value))
     return word_in_order
-
+print(words_in_text('bb bb. cc cc, aa cc'))
 
 print('\n****************** END ******************\n')
