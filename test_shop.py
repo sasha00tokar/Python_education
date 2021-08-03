@@ -1,4 +1,4 @@
-from example.Shop import Bag, Item
+from exercise.Shop import Bag, Item
 import pytest
 
 
