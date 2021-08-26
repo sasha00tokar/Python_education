@@ -13,11 +13,14 @@ def test_test_multiple_elements_2():
 
 def test_factorial():
     assert factorial(6) == 720
+    assert factorial(0) == 1
+    assert factorial(1) == 1
 
 
 def test_factorial_2():
     assert factorial_2(6) == 720
-
+    assert factorial(0) == 1
+    assert factorial(1) == 1
 
 def test_generate_dict():
     assert generate_dict(4) == {1: 1, 2: 4, 3: 9, 4: 16}
