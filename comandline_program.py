@@ -1,5 +1,4 @@
 import os
-import re
 import argparse
 
 from datetime import datetime
@@ -59,7 +58,7 @@ def old_arg(way, optional=None):
 
 
 parser.add_argument("-o", type=str, help="In which file the results will be written")
-parser.add_argument("-size", type=int, help="Size file" )
+parser.add_argument("-size", type=int, help="Size file")
 parser.add_argument(choices=["duplicates", "large", "images", "old"],
                     dest="argument", help="duplicates - search for identical files in the specified path,"
                                           "large - search files larger than the specified size,"
