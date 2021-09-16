@@ -34,13 +34,6 @@ def files_older_than_a_year(way):
             if datetime.fromtimestamp(os.path.getmtime(way + '/' + name)) < one_year_ago]
 
 
-def output_or_write_to_file(name_function, name_file):
-    if name_file is not None:
-        write_to_file(name_file, name_function)
-    else:
-        name_function
-
-
 def main():
     parser.add_argument("-o", type=str, help="In which file the results will be written")
     parser.add_argument("-size", type=int, help="Size file")
@@ -50,15 +43,19 @@ def main():
                                               "images - searches for image files,"
                                               "old - searches for files older than one year")
     parser.add_argument("way", help="File path")
+    command = parser.parse_args()
+    file_data = None
 
-    if parser.parse_args().argument == "duplicates":
-        output_or_write_to_file(identical_files(parser.parse_args().way), parser.parse_args().o)
-    elif parser.parse_args().argument == "large":
-        output_or_write_to_file(files_are_larger(parser.parse_args().way, parser.parse_args().size),
-                                parser.parse_args().o)
-    elif parser.parse_args().argument == "images":
-        output_or_write_to_file(image_files(parser.parse_args().way), parser.parse_args().o)
-    elif parser.parse_args().argument == "old":
-        output_or_write_to_file(files_older_than_a_year(parser.parse_args().way), parser.parse_args().o)
+    if command.argument == "duplicates":
+        file_data = identical_files(command.way)
+    elif command.argument == "large":
+        file_data = files_are_larger(command.way, command.size)
+    elif command.argument == "images":
+        file_data = image_files(command.way)
+    elif command.argument == "old":
+        file_data = files_older_than_a_year(command.way)
     else:
         print("NOT")
+
+    if command.o is not None:
+        write_to_file(command.o, file_data)
